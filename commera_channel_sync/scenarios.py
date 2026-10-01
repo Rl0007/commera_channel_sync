@@ -240,12 +240,13 @@ def s5_outage(phase: str = "down"):
 	print("bin", get_bin(item_code))
 
 
-def s6_volume(moves: int = 20):
+def s6_volume(moves: int = 20, pause_seconds: float = 0):
 	item_code = SIZE_ITEMS["L"]
 	started_at = now_datetime()
 	error_logs_before = frappe.db.count("Error Log")
 	for _ in range(int(moves)):
 		make_stock_entry([item_code], get_store_warehouse(), 1)
+		time.sleep(flt(pause_seconds))
 	finished_at = now_datetime()
 	print(
 		moves,
@@ -255,6 +256,7 @@ def s6_volume(moves: int = 20):
 		get_bin(item_code),
 	)
 	time.sleep(20)
+	frappe.db.rollback()
 	events = frappe.get_all(
 		"Commera Event",
 		filters={"reference_doctype": "Item", "reference_name": item_code, "creation": [">=", started_at]},
@@ -430,3 +432,26 @@ def wait_for(read, is_done, timeout: int = 60):
 		time.sleep(1)
 		frappe.db.rollback()
 	return read(), None
+
+
+def s5_status(since: str, wait_seconds: int = 0):
+	time.sleep(int(wait_seconds))
+	for row in my_deliveries(SIZE_ITEMS["S"], since):
+		print(row.parent, row.status, row.attempts, row.next_retry_at, "event qty", row.event_qty)
+	print(
+		"error logs",
+		frappe.get_all(
+			"Error Log",
+			filters={"reference_name": SIZE_ITEMS["S"], "creation": [">=", since]},
+			fields=["method", "creation"],
+			order_by="creation asc",
+		),
+	)
+
+
+def s3b_off_store_item_in_store_warehouse():
+	started_at = now_datetime()
+	make_stock_entry([OFF_STORE_ITEM], get_store_warehouse(), 1)
+	time.sleep(10)
+	print_events(OFF_STORE_ITEM, started_at)
+	print("listing exists:", frappe.db.exists("Channel Listing", OFF_STORE_ITEM))
