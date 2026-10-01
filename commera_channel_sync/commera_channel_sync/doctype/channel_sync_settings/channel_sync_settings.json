@@ -1,0 +1,41 @@
+{
+ "creation": "2026-10-01 12:00:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fake_channel_down"
+ ],
+ "fields": [
+  {
+   "description": "Make the fake channel API refuse every push, to exercise Commera's retries.",
+   "fieldname": "fake_channel_down",
+   "fieldtype": "Check",
+   "label": "Fake Channel Down"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2026-10-01 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Commera Channel Sync",
+ "name": "Channel Sync Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
