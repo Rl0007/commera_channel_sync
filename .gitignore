@@ -2,3 +2,5 @@
 *.pyc
 __pycache__
 *.egg-info
+node_modules
+commera_channel_sync/public/commera/

@@ -1,5 +1,5 @@
 app_name = "commera_channel_sync"
-app_title = "Commera Channel Sync"
+app_title = "Channel Sync"
 app_publisher = "Rahul Agrawal"
 app_description = "Keeps a marketplace channel's listings in step with the Commera storefront"
 app_email = "12agrawalrahul@gmail.com"
