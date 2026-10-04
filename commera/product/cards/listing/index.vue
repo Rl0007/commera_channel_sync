@@ -1,14 +1,14 @@
 <script>
-export const extension = { label: 'Channel listing', requires: 'Channel Listing' }
+export const plugin = { label: 'Channel listing', requires: 'Channel Listing' }
 </script>
 
 <script setup>
 import { computed, watch } from 'vue'
 import { Skeleton, dayjs } from 'frappe-ui'
-import { StatusBadge, money, useCard, useExtension, useMethodRead, usePolling } from '@commera/admin'
+import { StatusBadge, money, useCard, usePlugin, useMethodRead, usePolling } from '@commera/admin'
 import { SYNC_STATUS_KEYS } from '../../../shared/status'
 
-const { record } = useExtension()
+const { record } = usePlugin()
 const card = useCard()
 
 const listingsRequest = useMethodRead('commera_channel_sync.api.get_product_listings', {

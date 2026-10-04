@@ -1,5 +1,5 @@
 <script>
-export const extension = {
+export const plugin = {
   label: 'Sync to channel now',
   icon: 'refresh-cw',
   requires: 'Channel Listing',

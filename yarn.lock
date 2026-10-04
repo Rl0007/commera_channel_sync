@@ -27,7 +27,7 @@
     "@babel/helper-string-parser" "^7.29.7"
     "@babel/helper-validator-identifier" "^7.29.7"
 
-"@commera/extension-kit@link:../commera/packages/extension-kit":
+"@commera/plugin-kit@link:../commera/packages/plugin-kit":
   version "0.0.0"
   uid ""
 

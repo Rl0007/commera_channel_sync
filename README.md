@@ -1,6 +1,6 @@
 # Channel Sync
 
-Keeps a marketplace channel's listings in step with the Commera storefront. An example app built on [Commera](https://github.com/bwhtech/commera).
+Keeps a marketplace channel's listings in step with the Commera storefront. An example plugin built on [Commera](https://github.com/bwhtech/commera).
 
 ## Install
 
@@ -12,7 +12,7 @@ bench build --app commera_channel_sync
 
 ## What it adds
 
-- **Channel sync** page under Apps in /commera, with listing counts.
+- **Channel sync** page under Plugins in /commera, with listing counts.
 - A listing card and a **Sync to channel now** action on each product.
 - Keeps listings in step through Commera's `product_updated` and `inventory_changed` events (`commera_events` in `hooks.py`), using `commera.sdk.catalog.get_items` for price and stock.
 
