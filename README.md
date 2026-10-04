@@ -14,7 +14,7 @@ bench build --app commera_channel_sync
 
 - **Channel sync** page under Apps in /commera, with listing counts.
 - A listing card and a **Sync to channel now** action on each product.
-- Keeps listings in step through Commera's `commera_product_updated` and `commera_inventory_changed` events, using `commera.sdk.catalog.get_items` for price and stock.
+- Keeps listings in step through Commera's `product_updated` and `inventory_changed` events (`commera_events` in `hooks.py`), using `commera.sdk.catalog.get_items` for price and stock.
 
 ## License
 

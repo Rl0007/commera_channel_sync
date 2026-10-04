@@ -8,5 +8,7 @@ app_license = "mit"
 required_apps = ["commera"]
 
 commera_api_version = [1]
-commera_product_updated = ["commera_channel_sync.listings.on_product_updated"]
-commera_inventory_changed = ["commera_channel_sync.listings.on_inventory_changed"]
+commera_events = {
+	"product_updated": ["commera_channel_sync.listings.on_product_updated"],
+	"inventory_changed": ["commera_channel_sync.listings.on_inventory_changed"],
+}
